@@ -37,7 +37,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: frontend/dist
+          # Built site + the server that serves it and proxies /api
+          path: |
+            frontend/dist
+            frontend/server.js
+            frontend/package.json
 
   deploy:
     runs-on: ubuntu-latest
